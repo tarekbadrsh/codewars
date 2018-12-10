@@ -1,4 +1,4 @@
-# Buying a car
+# [![Buying a car](https://www.codewars.com/kata/554a44516729e4d80b000012)](https://www.codewars.com/kata/554a44516729e4d80b000012)
 
 Let us begin with an example:
 
