@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestEquableTriangle(t *testing.T) {
+func TestDuplicateCount(t *testing.T) {
 	var tt = []struct {
 		id       string
 		input    string

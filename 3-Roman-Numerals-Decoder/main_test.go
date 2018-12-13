@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestEquableTriangle(t *testing.T) {
+func TestDecode(t *testing.T) {
 	var tt = []struct {
 		id       string
 		roman    string
