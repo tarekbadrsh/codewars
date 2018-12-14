@@ -25,19 +25,19 @@ func TestGoing(t *testing.T) {
 		{"12", 10110, 1.000098},
 	}
 
-	// for _, tc := range tt {
-	// 	t.Run(tc.id, func(t *testing.T) {
-	// 		res := Going(tc.input)
-	// 		if res != tc.expected {
-	// 			t.Errorf("expected %v; got %v", tc.expected, res)
-	// 		}
-	// 	})
-	// }
+	for _, tc := range tt {
+		t.Run(tc.id, func(t *testing.T) {
+			res := Going(tc.input)
+			if res != tc.expected {
+				t.Errorf("expected %v; got %v", tc.expected, res)
+			}
+		})
+	}
 
 	// test Going BestPractices
 	for _, tc := range tt {
 		t.Run(fmt.Sprintf("BestPractices-%v", tc.id), func(t *testing.T) {
-			res := Going(tc.input)
+			res := GoingBestPractices(tc.input)
 			if res != tc.expected {
 				t.Errorf("expected %v; got %v", tc.expected, res)
 			}
