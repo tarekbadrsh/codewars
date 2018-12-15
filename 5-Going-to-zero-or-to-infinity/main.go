@@ -36,7 +36,6 @@ func Going(n int) float64 {
 }
 
 // GoingBestPractices :
-// also not working starting from 200 - with go1.11
 func GoingBestPractices(n int) float64 {
 	res, inter := 1.0, 1.0
 	for i := n; i >= 2; i-- {
