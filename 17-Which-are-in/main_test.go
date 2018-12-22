@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestInArray(t *testing.T) {
 	var tt = []struct {
@@ -15,10 +18,8 @@ func TestInArray(t *testing.T) {
 	for _, tc := range tt {
 		t.Run("", func(t *testing.T) {
 			res := InArray(tc.a, tc.b)
-			for k := range res {
-				if res[k] != tc.expected[k] {
-					t.Errorf("expected %v; got %v", tc.expected, res)
-				}
+			if !reflect.DeepEqual(res, tc.expected) {
+				t.Errorf("expected %v; got %v", tc.expected, res)
 			}
 		})
 	}
