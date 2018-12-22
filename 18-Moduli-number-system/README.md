@@ -1,4 +1,4 @@
-# [![Moduli number system](https://www.codewars.com/kata/which-are-in)](https://www.codewars.com/kata/which-are-in)
+# [![Moduli number system](https://www.codewars.com/kata/moduli-number-system)](https://www.codewars.com/kata/moduli-number-system)
 
 
 Description:
