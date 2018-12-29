@@ -132,8 +132,8 @@ func BenchmarkBalanceC(b *testing.B) {
 $ go test -bench . -benchmem
 goos: linux
 goarch: amd64
-BenchmarkByState-24               100000             17180 ns/op            5301 B/op         80 allocs/op
-BenchmarkByStateB-24              100000             19694 ns/op            5317 B/op         70 allocs/op
-BenchmarkByStateC-24               30000             59395 ns/op           46736 B/op         63 allocs/op
+BenchmarkBalance-24                50000             39067 ns/op            4988 B/op        146 allocs/op
+BenchmarkBalanceB-24               10000            120090 ns/op           84627 B/op        165 allocs/op
+BenchmarkBalanceC-24               30000             55964 ns/op            5317 B/op         91 allocs/op
 
 */

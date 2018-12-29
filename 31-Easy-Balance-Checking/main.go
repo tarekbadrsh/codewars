@@ -93,12 +93,13 @@ func BalanceB(book string) string {
 	return res + fmt.Sprintf("\nTotal expense  %.2f\nAverage expense  %.2f", total-current, (total-current)/float64(count))
 }
 
+var re1 = regexp.MustCompile(`[^\n. \dA-Za-z]`)
+var re2 = regexp.MustCompile(`\n+`)
+
 // BalanceC :
 func BalanceC(book string) string {
 	book = strings.TrimSpace(book)
-	re1 := regexp.MustCompile(`[^\n. \dA-Za-z]`)
 	bb1 := re1.ReplaceAllString(book, "")
-	re2 := regexp.MustCompile(`\n+`)
 	lst := re2.Split(bb1, -1)
 	res := bytes.Buffer{}
 	var expense float64
