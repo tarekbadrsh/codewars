@@ -1,3 +1,4 @@
+// https://www.codewars.com/kata/valid-braces/train/go
 package main
 
 import "fmt"

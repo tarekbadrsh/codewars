@@ -54,3 +54,12 @@ func BenchmarkDecomposeB(b *testing.B) {
 		DecomposeB(input)
 	}
 }
+
+/*
+go test -bench . -benchmem
+goos: linux
+goarch: amd64
+BenchmarkDecompose-8               10000            103008 ns/op             120 B/op          4 allocs/op
+BenchmarkDecomposeB-8               5000            363944 ns/op             120 B/op          4 allocs/op
+
+*/
