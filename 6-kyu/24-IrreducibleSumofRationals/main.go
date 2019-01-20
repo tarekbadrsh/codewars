@@ -10,6 +10,9 @@ func main() {
 	fmt.Println(SumFracts([][]int{{1, 3}, {5, 3}}))
 	fmt.Println(SumFracts([][]int{{1, 2}, {1, 3}, {1, 4}}))
 	fmt.Println(gcd(36, 24))
+	fmt.Println(gcd(81345, 15786))
+	fmt.Println(gcd(87546, 11111111))
+	fmt.Println(gcd(43216, 255689))
 }
 
 // SumFracts :
