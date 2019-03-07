@@ -13,6 +13,15 @@ START_TEST(test_positive_sum)
 }
 END_TEST
 
+START_TEST(test_positive_sum_2)
+{
+    const int values[] = {1, 2, 3, 4, 5 , 6};
+    int res = positive_sum(values, sizeof(values) / sizeof(values[0]));
+
+    ck_assert_int_eq(positive_sum(values, sizeof(values) / sizeof(values[0])), 21);
+}
+END_TEST
+
 Suite *positive_sum_suite(void)
 {
     Suite *s;
@@ -24,6 +33,7 @@ Suite *positive_sum_suite(void)
     tc_core = tcase_create("Core");
 
     tcase_add_test(tc_core, test_positive_sum);
+    tcase_add_test(tc_core, test_positive_sum_2);
 
     suite_add_tcase(s, tc_core);
 
