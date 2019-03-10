@@ -11,6 +11,8 @@ int main()
 
 
 // How to build.
-// gcc -c positive_sum.c -o positive_sum
-// gcc -c main.c -o main
-// gcc positive_sum main -o main.o
+// gcc -c positive_sum.c -o positive_sum.out
+// gcc -c main.c -o main.out
+// gcc positive_sum.out main.out
+// ./a.out
+
