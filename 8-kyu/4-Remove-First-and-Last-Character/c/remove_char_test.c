@@ -7,7 +7,7 @@
 START_TEST(test_remove_char)
 {
     char *input = "12345";
-    char *actual = remove_char("",input);
+    char *actual = remove_char("", input);
     char *expected = "234";
 
     ck_assert_str_eq(actual, expected);
@@ -22,9 +22,8 @@ struct TestCase
 
 START_TEST(test_remove_char_2)
 {
-char* strings[] = {"eloquent", "country", "person", "place", "ok"};
-char* expected[] = {"loquen", "ountr", "erso", "lac", ""};
-
+    char *strings[] = {"eloquent", "country", "person", "place", "ok"};
+    char *expected[] = {"loquen", "ountr", "erso", "lac", ""};
 
     struct TestCase testcases[7] = {
         {"", ""},
@@ -36,7 +35,7 @@ char* expected[] = {"loquen", "ountr", "erso", "lac", ""};
         {"test", "es"}};
     for (int i = 0; i < 7; i++)
     {
-        char *actual = remove_char("",testcases[i].input);
+        char *actual = remove_char("", testcases[i].input);
         ck_assert_str_eq(actual, testcases[i].expected);
     }
 }

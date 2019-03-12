@@ -1,1 +1,1 @@
-char* remove_char(char* dst, const char* src);
+char *remove_char(char *dst, const char *src);
