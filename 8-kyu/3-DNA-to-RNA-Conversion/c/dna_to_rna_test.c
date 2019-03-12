@@ -4,8 +4,6 @@
 #include <check.h>
 #include "dna_to_rna.h"
 
-#include <stdio.h>
-
 START_TEST(test_dna_to_rna)
 {
     char *input = "123T456789xTTT";
