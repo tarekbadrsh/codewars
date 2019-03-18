@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <check.h>
+#include <stdio.h>
 #include "remove_char.h"
+
 
 START_TEST(test_remove_char)
 {

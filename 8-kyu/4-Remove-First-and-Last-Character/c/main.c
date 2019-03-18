@@ -7,7 +7,6 @@
 int main()
 {
     char *input = "12345";
-    // char *input = "";
     printf("%s\n", remove_char("", input));
 
     return 0;
