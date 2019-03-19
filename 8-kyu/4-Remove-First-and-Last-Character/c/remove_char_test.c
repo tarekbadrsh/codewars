@@ -23,11 +23,7 @@ struct TestCase
 };
 
 START_TEST(test_remove_char_2)
-{
-    char *strings[] = {"eloquent", "country", "person", "place", "ok"};
-    char *expected[] = {"loquen", "ountr", "erso", "lac", ""};
-
-    struct TestCase testcases[7] = {
+{   struct TestCase testcases[] = {
         {"", ""},
         {"eloquent", "loquen"},
         {"country", "ountr"},
@@ -35,7 +31,8 @@ START_TEST(test_remove_char_2)
         {"place", "lac"},
         {"ok", ""},
         {"test", "es"}};
-    for (int i = 0; i < 7; i++)
+    size_t count = sizeof(testcases)/sizeof(testcases[0]);
+    for (int i = 0; i < count; i++)
     {
         char *actual = remove_char("", testcases[i].input);
         ck_assert_str_eq(actual, testcases[i].expected);
