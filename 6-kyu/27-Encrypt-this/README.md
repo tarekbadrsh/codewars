@@ -1,18 +1,17 @@
 
-# [![Encrypt this!](https://www.codewars.com/kata/5848565e273af816fb000449)](https://www.codewars.com/kata/5848565e273af816fb000449)
+# [![Decipher this!](https://www.codewars.com/kata/581e014b55f2c52bb00000f8)](https://www.codewars.com/kata/581e014b55f2c52bb00000f8)
 
-You want to create secret messages which can be deciphered by the Decipher [![this](https://www.codewars.com/kata/581e014b55f2c52bb00000f8)](https://www.codewars.com/kata/581e014b55f2c52bb00000f8) kata. Here are the conditions:
+You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
 
-Your message is a string containing space separated words.
-You need to encrypt each word in the message using the following rules:
-- The first letter needs to be converted to its ASCII code.
-- The second letter needs to be switched with the last letter
+For each word:
 
-Keepin' it simple: There are no special characters in input.
+- the second and the last letter is switched (e.g. `Hello` becomes `Holle`)
+- the first letter is replaced by its character code (e.g. `H` becomes `72`)
 
-### Examples:
+Note: there are no special characters used, only letters and spaces
+
+Examples
 ```
-encrypt_this("Hello") == "72olle"
-encrypt_this("good") == "103doo"
-encrypt_this("hello world") == "104olle 119drlo"
+decipherThis('72olle 103doo 100ya'); // 'Hello good day'
+decipherThis('82yade 115te 103o'); // 'Ready set go'
 ```
