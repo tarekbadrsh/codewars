@@ -35,7 +35,7 @@ func main() {
 			"AA 45522"))
 }
 
-// Travel :
+// Travel1 :
 func Travel1(r, zipcode string) string {
 	address := strings.Split(r, ",")
 	result := ""
@@ -57,7 +57,18 @@ func Travel1(r, zipcode string) string {
 	return result
 }
 
-// Travel :
+// Travel2 :
 func Travel2(r, zipcode string) string {
-	return ""
+	var strInfo []string
+	var strNumbers []string
+
+	for _, str := range strings.Split(r, ",") {
+		tmp := strings.Fields(str)
+		if zipcode == strings.Join(tmp[(len(tmp)-2):], " ") {
+			strNumbers = append(strNumbers, tmp[0])
+			strInfo = append(strInfo, strings.Join(tmp[1:len(tmp)-2], " "))
+		}
+	}
+
+	return zipcode + ":" + strings.Join(strInfo, ",") + "/" + strings.Join(strNumbers, ",")
 }

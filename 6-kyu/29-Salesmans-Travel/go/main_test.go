@@ -44,6 +44,15 @@ func TestEncryptThis(t *testing.T) {
 		})
 	}
 
+	for _, tc := range tt {
+		t.Run("", func(t *testing.T) {
+			res := Travel2(tc.input1, tc.input2)
+			if !reflect.DeepEqual(res, tc.expected) {
+				t.Errorf("expected\n%v\ngot\n%v", tc.expected, res)
+			}
+		})
+	}
+
 }
 
 //!+bench
@@ -56,13 +65,20 @@ func BenchmarkTravelThis1(b *testing.B) {
 	}
 }
 
+func BenchmarkTravelThis2(b *testing.B) {
+	input := "123 Main Street St. Louisville OH 43071,432 Main Long Road St. Louisville OH 43071,786 High Street Pollocksville NY 56432"
+	for index := 0; index < b.N; index++ {
+		Travel2(input, "OH 43071")
+	}
+}
+
 /*
 goos: windows
 goarch: amd64
-pkg: github.com/tarekbadrshalaan/codewars/6-kyu/29-/go
+pkg: github.com/tarekbadrshalaan/codewars/6-kyu/29-Salesmans-Travel/go
 cpu: Intel(R) Xeon(R) CPU           W3565  @ 3.20GHz
-BenchmarkTravelThis1-8            324814              3756 ns/op             864 B/op         25 allocs/op
-BenchmarkEncryptThis2-8         1000000000             0 B/op          0 allocs/op
+BenchmarkTravelThis1-8            308756              3786 ns/op             864 B/op         25 allocs/op
+BenchmarkTravelThis2-8            518280              2769 ns/op             720 B/op         16 allocs/op
 PASS
-ok      github.com/tarekbadrshalaan/codewars/6-kyu/29-/go       1.383s
+ok      github.com/tarekbadrshalaan/codewars/6-kyu/29-Salesmans-Travel/go       3.759s
 */
