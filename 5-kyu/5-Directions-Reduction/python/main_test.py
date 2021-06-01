@@ -47,4 +47,4 @@ class TestMain(TestCase):
             self.assertEqual(res, tc["expected"])
 
 
-# python3 -m unittest discover -v -p '*_test.py'
+# python -m unittest discover -v -p '*_test.py'
