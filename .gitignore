@@ -1,3 +1,7 @@
 *.out
 .vscode
 __pycache__
+
+# CSharp
+bin
+obj
