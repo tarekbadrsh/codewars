@@ -16,6 +16,8 @@ public class Main
         return termsList.ToArray();
     }
 
+
+    ///================ other practices ==================///
     public static int[] CountByA(int x, int n)
     {
         return Enumerable.Range(1, n).Select(i => i * x).ToArray();

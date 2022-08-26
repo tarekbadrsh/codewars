@@ -1,4 +1,4 @@
-# [![Count by X](https://www.codewars.com/kata/5513795bd3fafb56c200049e/solutions/python)](https://www.codewars.com/kata/5513795bd3fafb56c200049e/solutions/python)
+# [![Count by X](https://www.codewars.com/kata/5513795bd3fafb56c200049e)](https://www.codewars.com/kata/5513795bd3fafb56c200049e)
 
 
 Create a function with two arguments that will return an array of the first (n) multiples of (x).
