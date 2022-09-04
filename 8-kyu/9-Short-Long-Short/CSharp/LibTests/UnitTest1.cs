@@ -1,6 +1,7 @@
 namespace LibTests;
-using Lib;
 
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Lib;
 
 class pram
 {
