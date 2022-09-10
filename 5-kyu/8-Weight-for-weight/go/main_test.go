@@ -55,13 +55,13 @@ func TestOrderedCount(t *testing.T) {
 //!+bench
 // go test -v  -bench=.
 // go test -bench . -benchmem
-func BenchmarkSolution(b *testing.B) {
+func BenchmarkOrderWeight(b *testing.B) {
 	for index := 0; index < b.N; index++ {
 		OrderWeight("387087 176 351832 100 430372 8 58052 54 175432 120 269974 147 309754 91 404858 67 271476 164 295747 111 40")
 	}
 }
 
-func BenchmarkSolutionA(b *testing.B) {
+func BenchmarkOrderWeightA(b *testing.B) {
 	for index := 0; index < b.N; index++ {
 		OrderWeightA("387087 176 351832 100 430372 8 58052 54 175432 120 269974 147 309754 91 404858 67 271476 164 295747 111 40")
 	}
