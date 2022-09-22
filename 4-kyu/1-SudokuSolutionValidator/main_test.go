@@ -51,6 +51,17 @@ func TestValidateSolution(t *testing.T) {
 			{5, 6, 1, 4, 2, 3, 9, 8, 7},
 			{2, 7, 3, 6, 9, 1, 8, 5, 4},
 		}, false},
+		{[][]int{
+			{5, 5, 5, 5, 5, 5, 5, 5, 5},
+			{5, 5, 5, 5, 5, 5, 5, 5, 5},
+			{5, 5, 5, 5, 5, 5, 5, 5, 5},
+			{5, 5, 5, 5, 5, 5, 5, 5, 5},
+			{5, 5, 5, 5, 5, 5, 5, 5, 5},
+			{5, 5, 5, 5, 5, 5, 5, 5, 5},
+			{5, 5, 5, 5, 5, 5, 5, 5, 5},
+			{5, 5, 5, 5, 5, 5, 5, 5, 5},
+			{5, 5, 5, 5, 5, 5, 5, 5, 5},
+		}, false},
 	}
 	for _, tc := range tt {
 		t.Run("", func(t *testing.T) {
@@ -64,6 +75,15 @@ func TestValidateSolution(t *testing.T) {
 	for _, tc := range tt {
 		t.Run("B", func(t *testing.T) {
 			res := ValidateSolutionB(tc.input)
+			if !reflect.DeepEqual(res, tc.expected) {
+				t.Errorf("expected\n%v\ngot\n%v", tc.expected, res)
+			}
+		})
+	}
+
+	for _, tc := range tt {
+		t.Run("C", func(t *testing.T) {
+			res := ValidateSolutionC(tc.input)
 			if !reflect.DeepEqual(res, tc.expected) {
 				t.Errorf("expected\n%v\ngot\n%v", tc.expected, res)
 			}
@@ -108,11 +128,30 @@ func BenchmarkValidateSolutionB(b *testing.B) {
 	}
 }
 
+func BenchmarkValidateSolutionC(b *testing.B) {
+	input := [][]int{
+		{1, 2, 6, 3, 4, 7, 5, 9, 8},
+		{7, 3, 5, 8, 1, 9, 6, 4, 2},
+		{1, 9, 4, 2, 7, 5, 8, 6, 3},
+		{3, 1, 7, 5, 8, 4, 2, 6, 9},
+		{7, 5, 9, 1, 6, 2, 4, 3, 8},
+		{4, 8, 2, 9, 3, 6, 7, 1, 5},
+		{1, 4, 8, 7, 5, 9, 3, 2, 6},
+		{5, 6, 1, 4, 2, 3, 9, 8, 7},
+		{2, 7, 3, 6, 9, 1, 8, 5, 4},
+	}
+	for index := 0; index < b.N; index++ {
+		ValidateSolutionB(input)
+	}
+}
+
 /*
 go test -bench . -benchmem
 goos: linux
 goarch: amd64
-BenchmarkValidateSolution-8      5000000               361 ns/op             248 B/op          5 allocs/op
-BenchmarkValidateSolutionB-8    100000000               22.1 ns/op             0 B/op          0 allocs/op
-
+pkg: github.com/tarekbadrshalaan/codewars/4-kyu/1-SudokuSolutionValidator
+cpu: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+BenchmarkValidateSolution-8      4505823               247.4 ns/op           248 B/op          5 allocs/op
+BenchmarkValidateSolutionB-8    91042305                13.58 ns/op            0 B/op          0 allocs/op
+BenchmarkValidateSolutionC-8    87668318                13.21 ns/op            0 B/op          0 allocs/op
 */

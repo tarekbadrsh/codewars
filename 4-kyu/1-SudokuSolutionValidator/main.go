@@ -15,7 +15,7 @@ func main() {
 		{2, 8, 7, 4, 1, 9, 6, 3, 5},
 		{3, 4, 5, 2, 8, 6, 1, 7, 9},
 	}
-	fmt.Println(ValidateSolution(testTrue))
+	fmt.Println(ValidateSolutionC(testTrue))
 	var testFalse = [][]int{
 		{5, 3, 4, 6, 7, 8, 9, 1, 2},
 		{6, 7, 2, 1, 9, 0, 3, 4, 8},
@@ -27,8 +27,7 @@ func main() {
 		{2, 8, 7, 4, 1, 9, 6, 3, 5},
 		{3, 0, 0, 4, 8, 1, 1, 7, 9},
 	}
-
-	fmt.Println(ValidateSolution(testFalse))
+	fmt.Println(ValidateSolutionC(testFalse))
 }
 
 // ValidateSolution :
@@ -82,10 +81,7 @@ func sumarr(arr []int) int {
 	return sum
 }
 
-/**
-
-
-**/
+///================ other practices ==================///
 
 // ValidateSolutionB :
 func ValidateSolutionB(m [][]int) bool {
@@ -100,10 +96,7 @@ func ValidateSolutionB(m [][]int) bool {
 		}
 		row, col = 0, 0
 	}
-	if checkThrees(m) {
-		return true
-	}
-	return false
+	return checkThrees(m)
 }
 
 func checkThrees(m [][]int) bool {
@@ -122,5 +115,91 @@ func checkThrees(m [][]int) bool {
 			sum = 0
 		}
 	}
+	return true
+}
+
+///================ other practices ==================///
+type MainArr struct {
+	elem  int
+	exist bool
+}
+
+func GetMainArr() [10]MainArr {
+	return [10]MainArr{{elem: 0, exist: true}, {elem: 1, exist: false}, {elem: 2, exist: false}, {elem: 3, exist: false}, {elem: 4, exist: false}, {elem: 5, exist: false}, {elem: 6, exist: false}, {elem: 7, exist: false}, {elem: 8, exist: false}, {elem: 9, exist: false}}
+}
+
+// ValidateSolutionC :
+func ValidateSolutionC(m [][]int) bool {
+
+	// validate horizontal
+	for _, v := range m {
+		mainarr := GetMainArr()
+		for _, x := range v {
+			if mainarr[x].exist {
+				return false
+			}
+			mainarr[x].exist = true
+		}
+	}
+
+	// validate vertical
+	for i := 0; i < 9; i++ {
+		mainarr := GetMainArr()
+		for x := 0; x < 9; x++ {
+			if mainarr[m[x][i]].exist {
+				return false
+			}
+			mainarr[m[x][i]].exist = true
+		}
+	}
+
+	// validate square
+	/*
+		               |----|----|----| ----|----|----| ----|----|----|
+			square1	   |0X0Y|0X1Y|0X2Y| 1X0Y|1X1Y|1X2Y| 2X0Y|2X1Y|2X2Y|
+		               |----|----|----| ----|----|----| ----|----|----|
+			square2	   |0X3Y|0X4Y|0X5Y| 1X3Y|1X4Y|1X5Y| 2X3Y|2X4Y|2X5Y|
+		               |----|----|----| ----|----|----| ----|----|----|
+			square3	   |0X6Y|0X7Y|0X8Y| 1X6Y|1X7Y|1X8Y| 2X6Y|2X7Y|2X8Y|
+		               |----|----|----| ----|----|----| ----|----|----|
+			square4	   |3X0Y|3X1Y|3X2Y| 4X0Y|4X1Y|4X2Y| 5X0Y|5X1Y|5X2Y|
+		               |----|----|----| ----|----|----| ----|----|----|
+			square5	   |3X3Y|3X4Y|3X5Y| 4X3Y|4X4Y|4X5Y| 5X3Y|5X4Y|5X5Y|
+		               |----|----|----| ----|----|----| ----|----|----|
+			square6	   |3X6Y|3X7Y|3X8Y| 4X6Y|4X7Y|4X8Y| 5X6Y|5X7Y|5X8Y|
+		               |----|----|----| ----|----|----| ----|----|----|
+			square7	   |6X0Y|6X1Y|6X2Y| 7X0Y|7X1Y|7X2Y| 8X0Y|8X1Y|8X2Y|
+		               |----|----|----| ----|----|----| ----|----|----|
+			square8	   |6X3Y|6X4Y|6X5Y| 7X3Y|7X4Y|7X5Y| 8X3Y|8X4Y|8X5Y|
+		               |----|----|----| ----|----|----| ----|----|----|
+			square9	   |6X6Y|6X7Y|6X8Y| 7X6Y|7X7Y|7X8Y| 8X6Y|8X7Y|8X8Y|
+		               |----|----|----| ----|----|----| ----|----|----|
+	*/
+	xxbase := 0
+	for i := 0; i < 3; i++ {
+		xbase := xxbase
+		ybase := 0
+		for i := 0; i < 3; i++ {
+			mainarr := GetMainArr()
+			x := xbase
+			y := ybase
+			for i := 0; i < 3; i++ { // y axis for one square
+				for i := 0; i < 3; i++ { // x axis for one square
+					if mainarr[m[x][y]].exist {
+						return false
+					}
+					mainarr[m[x][y]].exist = true
+					y += 1
+				}
+				x += 1
+				y = ybase
+			}
+			ybase += 3
+			y = ybase
+		}
+		xxbase += 3
+		xbase = xxbase
+	}
+
 	return true
 }
